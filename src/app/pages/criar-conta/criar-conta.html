@@ -1,1 +1,54 @@
-<p>criar-conta works!</p>
+<div class="criar-conta-container">
+  <div class="imagem-criar-conta">
+    <img class="img-criar-conta" src="https://lec.com.br/wp-content/uploads/2024/06/business-coworkers-shaking-hands-meeting-office-focus-is-businessman-1-1536x1024.jpg" alt="User Profile Picture" />
+  </div>
+  <div class="imagem-logo">
+    <img class="img-logo" src="https://static.wixstatic.com/media/627b15_e5fb9b6d6686429698dfcc21419e3b0c~mv2.webp/v1/fill/w_260,h_271,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo-mrh360.webp" alt="User Profile Picture" />
+  </div>
+  <div class="form-titulo">
+    <span class="titulo" >Crie uma conta profissional</span>
+  </div>
+  <div class="form-instrucao">
+    <span class="instrucao" >Preencha seus dados para ter acesso</span>
+  </div>
+  <form [formGroup]="form">
+    <div class="form-criar-conta">
+      <div class="textboxes">
+        <ejs-textbox placeholder="Nome Completo" [(ngModel)]="criarConta.nomeCompleto" floatLabelType="Auto" Name="nomeCompleto" formControlName="nomeCompleto"></ejs-textbox>
+      </div>
+      <div class="div-validation" *ngIf="form.get('nomeCompleto')?.invalid && form.get('nomeCompleto')?.touched">
+        <p>* Nome completo obrigatório.</p>
+      </div>
+      <div class="textboxes">
+        <ejs-textbox placeholder="E-mail" [(ngModel)]="criarConta.email" floatLabelType="Auto" formControlName="email"></ejs-textbox>
+      </div>
+      <div class="div-validation" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+        <p>* E-mail obrigatório no formato contoso&#64;gmail.com.</p>
+      </div>
+      <div class="textboxes">
+        <ejs-textbox placeholder="Senha" [(ngModel)]="criarConta.senha" #default type="password" floatLabelType="Auto" Name="senha" formControlName="senha"></ejs-textbox>
+      </div>
+      <div class="div-validation" *ngIf="form.get('senha')?.invalid && form.get('senha')?.touched">
+        <p>* Senha obrigatória e deve conter 6 dígitos.</p>
+      </div>
+      <div class="textboxes">
+        <ejs-textbox placeholder="Confirmar senha" [(ngModel)]="criarConta.confirmarSenha" #default type="password" floatLabelType="Auto" Name="confirmarSenha" formControlName="confirmarSenha"></ejs-textbox>
+      </div>
+      <div class="div-validation" *ngIf="form.get('confirmarSenha')?.invalid && form.get('confirmarSenha')?.touched">
+        <p>* Confirmar Senha obrigatória e deve conter 6 dígitos.</p>
+      </div>
+      <div class="e-section-control">
+        <ejs-checkbox label="Aceito os termos de uso e privacidade" [(ngModel)]="criarConta.termoUso" Name="termoUso" formControlName="termoUso"></ejs-checkbox>
+      </div>
+      <div class="div-validation" *ngIf="form.get('termoUso')?.value == false" >
+        <p>* Obrigatório aceitar o termo de uso.</p>
+      </div>
+      <br>
+      <div class="e-section-control">
+        <button class="btn-criar-conta" (click)="salvarConta()" [disabled]="form.invalid" ejs-button>Salvar</button>
+      </div>
+    </div>`
+  </form>
+</div>
+
+

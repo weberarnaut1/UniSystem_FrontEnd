@@ -1,0 +1,32 @@
+.criar-conta-container {
+  display: flexbox;
+  }
+  .form-criar-conta{
+    float: right;
+    width:29%;
+    height: 90%;
+  }
+  
+  .titulo{
+    font-size: 120%;
+
+  }
+  .instrucao{
+    font-size: 80%;
+
+  }
+  .form-titulo{
+    float: right;
+    width:30%;
+    height: 5%;
+  }
+  .form-instrucao{
+    float: right;
+    width:30%;
+    height: 3%;
+    color: dimgrey;
+  }
+  .div-validation{
+    color: red;
+    font-size: 12px;
+  }

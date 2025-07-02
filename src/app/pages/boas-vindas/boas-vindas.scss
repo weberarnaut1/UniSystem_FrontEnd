@@ -1,0 +1,24 @@
+.e-boas-vindas-conteiner{
+  display: flexbox;
+}
+.boas-vindas-intitucional{
+  width: 35%;
+  height: 90%;
+  align-content: center;
+  float: left;
+}
+.imagem-boas-vindas{
+    float: right;
+    width: 60%;
+    height: 90%;
+    display: flex;
+  }
+  .boas-vindas-mensagem{
+    font-size: 220%;
+    height: 15%;
+  }
+  .boas-vindas-intrucao{
+    font-size: 100%;
+    height: 15%;
+    color: rgb(104, 104, 104);
+  }

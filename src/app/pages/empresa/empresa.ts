@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-empresa',
   imports: [],
@@ -7,5 +8,4 @@ import { Component } from '@angular/core';
   styleUrl: './empresa.scss'
 })
 export class Empresa {
-
 }
