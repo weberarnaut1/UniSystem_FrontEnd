@@ -1,6 +1,6 @@
 export class genericLists {
-  public id: number = 0;
-  public descricao: string = '';
+  public id!: number;
+  public descricao!: string;
 
   constructor() {
   }

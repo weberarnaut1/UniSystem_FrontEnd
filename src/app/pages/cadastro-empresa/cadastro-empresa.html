@@ -11,48 +11,15 @@
       <div class="textboxes">
         <ejs-combobox 
         id="cbxTipoEmpresa" 
-        [dataSource]="cbxTipoEmpresa" 
-        [fields]="cbxfields"
+        [dataSource]="modelCriarEmpresa.tipoEmpresa" 
+        [fields]="{ text: 'descricao', value: 'id' }"
         allowCustom="true"
-        [(value)]="cbxTipoEmpresaSelected"
-        placeholder ="Selecione o tipo de empresa"></ejs-combobox>     
-        <ejs-textbox placeholder="Nome Completo" [(ngModel)]="criarConta.nomeCompleto" floatLabelType="Auto" Name="nomeCompleto" formControlName="nomeCompleto"></ejs-textbox>
+        [(value)]="modelCriarEmpresa.tipoEmpresaSelected"
+        placeholder ="Selecione o tipo de empresa"></ejs-combobox>    
+        
       </div>
-      <div class="textboxes">
-        <ejs-textbox placeholder="Nome Completo" [(ngModel)]="criarConta.nomeCompleto" floatLabelType="Auto" Name="nomeCompleto" formControlName="nomeCompleto"></ejs-textbox>
-      </div>
-      <div class="div-validation" *ngIf="form.get('nomeCompleto')?.invalid && form.get('nomeCompleto')?.touched">
-        <p>* Nome completo obrigatório.</p>
-      </div>
-      <div class="textboxes">
-        <ejs-textbox placeholder="E-mail" [(ngModel)]="criarConta.email" floatLabelType="Auto" formControlName="email"></ejs-textbox>
-      </div>
-      <div class="div-validation" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
-        <p>* E-mail obrigatório no formato contoso&#64;gmail.com.</p>
-      </div>
-      <div class="textboxes">
-        <ejs-textbox placeholder="Senha" [(ngModel)]="criarConta.senha" #default type="password" floatLabelType="Auto" Name="senha" formControlName="senha"></ejs-textbox>
-      </div>
-      <div class="div-validation" *ngIf="form.get('senha')?.invalid && form.get('senha')?.touched">
-        <p>* Senha obrigatória e deve conter 6 dígitos.</p>
-      </div>
-      <div class="textboxes">
-        <ejs-textbox placeholder="Confirmar senha" [(ngModel)]="criarConta.confirmarSenha" #default type="password" floatLabelType="Auto" Name="confirmarSenha" formControlName="confirmarSenha"></ejs-textbox>
-      </div>
-      <div class="div-validation" *ngIf="form.get('confirmarSenha')?.invalid && form.get('confirmarSenha')?.touched">
-        <p>* Confirmar Senha obrigatória e deve conter 6 dígitos.</p>
-      </div>
-      <div class="e-section-control">
-        <ejs-checkbox label="Aceito os termos de uso e privacidade" [(ngModel)]="criarConta.termoUso" Name="termoUso" formControlName="termoUso"></ejs-checkbox>
-      </div>
-      <div class="div-validation" *ngIf="form.get('termoUso')?.value == false" >
-        <p>* Obrigatório aceitar o termo de uso.</p>
-      </div>
-      <br>
-      <div class="e-section-control">
-        <button class="btn-criar-conta" (click)="salvarConta()" [disabled]="form.invalid" ejs-button>Salvar</button>
-      </div>
-    </div>`
+      
+    </div>
   </form>
 </div>
 

@@ -1,5 +1,5 @@
 import { LocalStorage } from '../../services/localStorage/local-storage';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TextBoxModule } from '@syncfusion/ej2-angular-inputs';
 import { CheckBoxModule, ButtonModule } from '@syncfusion/ej2-angular-buttons'
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
@@ -17,10 +17,11 @@ import { ModelCriarConta } from '../../model/conta/model-criar-conta';
 
 
 export class CriarConta {
-  ModelCriarConta = new ModelCriarConta();
-
+  
   constructor(private router: Router, private LocalStorage: LocalStorage) {
   };
+
+  @Input() modelCriarConta: ModelCriarConta = new ModelCriarConta();
 
   primeiroNome: string = '';
 
@@ -34,11 +35,11 @@ export class CriarConta {
 
   protected salvarConta() {
 
-    if (this.ModelCriarConta.senha !== this.ModelCriarConta.confirmarSenha) {
+    if (this.modelCriarConta.senha !== this.modelCriarConta.confirmarSenha) {
       alert("As senhas digitadas são divergentes!");
     }
     else {
-      this.LocalStorage.armazenarConta(this.ModelCriarConta);
+      this.LocalStorage.armazenarConta(this.modelCriarConta);
       this.router.navigate(['/boas-vindas']);
     }
 

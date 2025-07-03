@@ -25,7 +25,7 @@ export class LocalStorage {
     localStorage.clear();
   }
 
-  armazenarConta(modelCriarConta: ModelCriarConta = new ModelCriarConta()): void {
+  armazenarConta(modelCriarConta: ModelCriarConta): void {
     this.removeItem('CadastroConta');
     this.removeItem('PrimeiroNomeCadastro');
     this.setItem('CadastroConta', JSON.stringify(modelCriarConta));
