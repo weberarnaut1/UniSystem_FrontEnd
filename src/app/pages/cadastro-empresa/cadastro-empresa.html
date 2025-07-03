@@ -1,13 +1,23 @@
 <app-menu></app-menu>
-<div class="criar-conta-container">
+<div class="cadastrar-empresa-container">
   <div class="form-titulo">
-    <span class="titulo" >Crie uma conta profissional</span>
+    <span class="titulo" >Cadastro de empresa matriz</span>
   </div>
-  <div class="form-instrucao">
-    <span class="instrucao" >Preencha seus dados para ter acesso</span>
+  <div class="form-separar-header">
+    <span></span>
   </div>
   <form [formGroup]="form">
-    <div class="form-criar-conta">
+    <div class="form-criar-empresa">
+      <div class="textboxes">
+        <ejs-combobox 
+        id="cbxTipoEmpresa" 
+        [dataSource]="cbxTipoEmpresa" 
+        [fields]="cbxfields"
+        allowCustom="true"
+        [(value)]="cbxTipoEmpresaSelected"
+        placeholder ="Selecione o tipo de empresa"></ejs-combobox>     
+        <ejs-textbox placeholder="Nome Completo" [(ngModel)]="criarConta.nomeCompleto" floatLabelType="Auto" Name="nomeCompleto" formControlName="nomeCompleto"></ejs-textbox>
+      </div>
       <div class="textboxes">
         <ejs-textbox placeholder="Nome Completo" [(ngModel)]="criarConta.nomeCompleto" floatLabelType="Auto" Name="nomeCompleto" formControlName="nomeCompleto"></ejs-textbox>
       </div>

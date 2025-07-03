@@ -1,4 +1,4 @@
-import { LocalStorage } from './../../services/local-storage';
+import { LocalStorage } from '../../services/localStorage/local-storage';
 import { Component } from '@angular/core';
 import {TextBoxModule } from '@syncfusion/ej2-angular-inputs';
 import { CheckBoxModule, ButtonModule } from '@syncfusion/ej2-angular-buttons'
@@ -6,15 +6,39 @@ import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Menu } from '../menu/menu';
+import { ComboBoxModule } from '@syncfusion/ej2-angular-dropdowns'
 
 
 @Component({
   selector: 'app-cadastro-empresa',
-  imports: [TextBoxModule, CheckBoxModule, ButtonModule, ReactiveFormsModule, CommonModule, Menu],
+  imports: [TextBoxModule, CheckBoxModule, ButtonModule, ReactiveFormsModule, CommonModule, Menu, ComboBoxModule],
   templateUrl: './cadastro-empresa.html',
   styleUrl: './cadastro-empresa.scss'
 })
+
 export class CadastroEmpresa {
+
+public cbxTipoEmpresa: { [key: string]: Object }[] = [ 
+  { Id: '1', tipoEmpresa: 'Empresa Individual (EI)' },
+  { Id: '2', tipoEmpresa: 'Microempreendedor Individual (MEI)' }, 
+  { Id: '3', tipoEmpresa: 'Sociedade Limitada (LTDA)' }, 
+  { Id: '4', tipoEmpresa: 'Sociedade Limitada Unipessoal (SLU)' }, 
+  { Id: '5', tipoEmpresa: 'Sociedade Simples (SS)' }, 
+  { Id: '6', tipoEmpresa: 'Sociedade Anônima (S/A)' }, 
+  { Id: '7', tipoEmpresa: 'Microempresa (ME)' }, 
+  { Id: '8', tipoEmpresa: 'Empresa de Pequeno Porte (EPP)' }, 
+  { Id: '9', tipoEmpresa: 'Empresa de médio e grande porte' }
+];
+    protected cbxfields: Object = { text: 'tipoEmpresa', value: 'Id' };
+
+    protected cbxTipoEmpresaSelected: string = '';
+
+    protected testeSelecao(){
+      console.log(this.cbxTipoEmpresa);
+      console.log(this.cbxTipoEmpresaSelected);
+      console.log(this.cbxfields);
+      
+    }
 
   criarConta = {nomeCompleto: '', email: '', senha: '', confirmarSenha: '', termoUso: false};
 
@@ -32,8 +56,6 @@ export class CadastroEmpresa {
 
 
   protected salvarConta(){
-//console.log(this.form.value);
-console.log(this.criarConta);
 
 if(this.criarConta.senha !== this.criarConta.confirmarSenha){
   alert("As senhas digitadas são divergentes!");
